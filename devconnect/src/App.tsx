@@ -6,7 +6,9 @@ import "./App.css";
 
 import { useState } from "react";
 import { Task } from "./components/task";
-import { TaskForm } from "./components/taskForm"
+import { TaskForm } from "./components/taskForm";
+import { Layout } from "./components/layout";
+import { DarkModeToggle } from "./components/DarkModeToggle";
 
 type TaskType = {
   id: number;
@@ -34,25 +36,34 @@ function App() {
   };
 
   const addTask = (title: string) => {
-  setTasks([...tasks, { id: Date.now(), title, completed: false }])
-}
+    setTasks([...tasks, { id: Date.now(), title, completed: false }]);
+  };
 
   return (
     <>
-      <div className="min-h-screen flex flex-col items-center bg-gray-100 p-6">
-        <h1 className="text-3xl font-bold mb-4">Task Tracker 🚀</h1>
-        <TaskForm onAdd={addTask} />
-        <div className="w-full max-w-md">
-          {tasks.map((task) => (
-            <Task
-              key={task.id}
-              {...task}
-              onToggle={toggleTask}
-              onDelete={deleteTask}
-            />
-          ))}
+      <Layout>
+        <div className="flex items-center justify-between w-full mb-4">
+          <h1 className="text-3xl font-bold mb-4">Task Tracker 🚀</h1>
+          <DarkModeToggle />
         </div>
-      </div>
+        <TaskForm onAdd={addTask} />
+        <div className="w-full">
+          {tasks.length === 0 ? (
+            <p className="text-center text-gray-500">
+              No tasks yet. Add one above 👆
+            </p>
+          ) : (
+            tasks.map((task) => (
+              <Task
+                key={task.id}
+                {...task}
+                onToggle={toggleTask}
+                onDelete={deleteTask}
+              />
+            ))
+          )}
+        </div>
+      </Layout>
     </>
   );
 }
