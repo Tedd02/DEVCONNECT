@@ -22,7 +22,7 @@ export function TaskModal({ isOpen, onRequestClose, onAddTask }: TaskModalProps)
   };
 
   return (
-    <Modal isOpen={isOpen} onRequestClose={onRequestClose} className="flex justify-center-safe items-center-safe w-full h-full border-2 bg-black/65">
+    <Modal isOpen={isOpen} onRequestClose={onRequestClose} className="flex justify-center-safe items-center-safe w-full h-full border-2 bg-black/20">
       <div className='flex flex-col w-[30%] border border-gray-100 rounded-2xl px-5 py-5 bg-white outline-2 outline-offset-2 outline-gray-200/50'>
       <div className='flex justify-between mb-2'>
         <h2 className='text-xl font-bold text-left'>Create Task</h2>

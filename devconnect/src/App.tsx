@@ -88,15 +88,19 @@ const addTask = async (task: Omit<TaskType, "id"> & { completed?: boolean }) => 
 
       <Navbar currentDate={currentDate} setCurrentDate={setCurrentDate} />
 
+      <div className="flex justify-between mb-6">
+
       <input
         type="text"
         placeholder="Search tasks..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        className="mb-4 p-2 border rounded"
+        className="w-[80%] p-2 border rounded-lg border-gray-400 focus:outline-1 focus:outline-offset-1 focus:outline-fuchsia-500/50"
       />
 
       <TaskForm onAdd={() => setIsModalOpen(true)} />
+
+      </div>
 
       {filteredTasks.length === 0 ? (
         <p className="text-center text-gray-500">No tasks yet. Add one above 👆</p>

@@ -6,7 +6,7 @@ type TaskFormProps = {
 
 export function TaskForm({ onAdd }: TaskFormProps) {
   return (
-    <Button onClick={onAdd} className="mb-4 border border-gray-200">
+    <Button onClick={onAdd} className="cursor-pointer text-white bg-indigo-700 px-4 py-5 border border-gray-200 hover:bg-indigo-900">
       Add Task
     </Button>
   );
